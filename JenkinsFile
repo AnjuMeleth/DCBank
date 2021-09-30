@@ -8,8 +8,8 @@ import java.net.URL
 
 node{
  stage('Checkout') {
- // git branch: 'main', url: 'https://github.com/AnjuMeleth/SpringPetClinic.git'
- git 'https://github.com/madhusolutionarchitect/CapStoneDigitalBank.git'
+ 
+ git 'https://github.com/AnjuMeleth/DCBank.git'
 
     }
 
@@ -18,7 +18,7 @@ node{
      withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'M3') {
-            bat 'mvn clean compile'
+            sh 'mvn clean compile'
             }
         }
     }
@@ -27,7 +27,7 @@ node{
      withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'M3') {
-            bat 'mvn clean test'
+            sh 'mvn clean test'
             }
         }
     } 
@@ -36,7 +36,7 @@ stage('Package') {
      withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'M3') {
-            bat 'mvn clean package'
+            sh 'mvn clean package'
             }
         }
     }
